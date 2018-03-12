@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Ussd operators
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let op of operators">
+            <h2>{{op.name}}</h2>
+            <ion-grid>
+                <ion-row *ngFor="let item of op.commands">
+                    <a href="#" (click)="sendCommand(item)">
+                        <ion-col>
+                            <ion-avatar item-start>
+                                <img src="assets/imgs/phone.png">
+                            </ion-avatar>
+                            {{item.command}}
+                        </ion-col>
+                        <ion-col col-auto text-wrap no-lines>
+                            {{item.description_ua}}
+                        </ion-col>
+                    </a>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>
